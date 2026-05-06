@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ADAMS APPLE HOME</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENW82B8L2H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ENW82B8L2H');
+    </script>
+    <link rel="icon" type="image/svg" href="favicon 2.svg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; display: flex; }
+        .login-left {
+            flex: 1; background: linear-gradient(160deg, #0a0a0a 0%, #e39f00c9 100%);
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 60px 40px; color: #fff; position: relative; overflow: hidden;
+        }
+        .login-left::before { content:''; position:absolute; width:400px; height:400px; background:rgba(255,255,255,0.05); border-radius:50%; top:-100px; left:-100px; }
+        .login-left::after  { content:''; position:absolute; width:300px; height:300px; background:rgba(255,255,255,0.04); border-radius:50%; bottom:-80px; right:-80px; }
+        .brand-logo    { font-size:3.5rem; margin-bottom:16px; position:relative; z-index:1; }
+        .brand-name    { font-size:1.8rem; font-weight:800; letter-spacing:-0.5px; margin-bottom:10px; position:relative; z-index:1; text-align:center; }
+        .brand-tagline { font-size:1rem; opacity:0.75; text-align:center; max-width:280px; line-height:1.6; position:relative; z-index:1; }
+        .brand-features { margin-top:40px; display:flex; flex-direction:column; gap:14px; position:relative; z-index:1; }
+        .brand-feature  { display:flex; align-items:center; gap:12px; font-size:0.9rem; opacity:0.85; }
+        .brand-feature span { font-size:1.2rem; }
+
+        .login-right { width:480px; background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:50px 48px; }
+        .login-right h2 { font-size:2rem; font-weight:800; color:#1d1d1f; margin-bottom:6px; }
+        .login-right .sub { color:#888; font-size:0.92rem; margin-bottom:28px; }
+        .form-group { width:100%; margin-bottom:18px; }
+        .form-group label { display:block; font-size:0.82rem; font-weight:700; color:#444; margin-bottom:7px; text-transform:uppercase; letter-spacing:0.5px; }
+        .input-wrap { position:relative; }
+        .input-wrap .icon { position:absolute; left:14px; top:50%; transform:translateY(-50%); font-size:1rem; color:#aaa; }
+        .form-group input { width:100%; padding:13px 14px 13px 42px; border:1.5px solid #e0e0e0; border-radius:12px; font-size:0.95rem; color:#1d1d1f; outline:none; transition:border 0.2s, box-shadow 0.2s; background:#fafafa; }
+        .form-group input:focus { border-color:#0071e3; box-shadow:0 0 0 3px rgba(0,113,227,0.12); background:#fff; }
+        .btn-login { width:100%; padding:14px; background:#0071e3; color:#fff; border:none; border-radius:12px; font-size:1rem; font-weight:700; cursor:pointer; transition:background 0.2s, transform 0.1s; }
+        .btn-login:hover  { background:#005bb5; }
+        .btn-login:active { transform:scale(0.98); }
+        .error-box   { width:100%; background:#fff0f0; color:#c0392b; border:1.5px solid #f5c6cb; border-radius:10px; padding:11px 14px; font-size:0.88rem; margin-bottom:16px; display:none; align-items:center; gap:8px; }
+        .success-box { width:100%; background:#f0fff4; color:#1a7a3a; border:1.5px solid #b2dfdb; border-radius:10px; padding:11px 14px; font-size:0.88rem; margin-bottom:16px; display:none; align-items:center; gap:8px; }
+        .divider { width:100%; display:flex; align-items:center; gap:12px; margin:20px 0; color:#ccc; font-size:0.82rem; }
+        .divider::before, .divider::after { content:''; flex:1; height:1px; background:#e8e8e8; }
+        .signup-row { font-size:0.88rem; color:#666; text-align:center; }
+        .signup-row a { color:#0071e3; font-weight:700; text-decoration:none; }
+        .signup-row a:hover { text-decoration:underline; }
+        .back-home { margin-top:20px; font-size:0.82rem; color:#aaa; text-align:center; }
+        .back-home a { color:#888; text-decoration:none; font-weight:600; }
+        .back-home a:hover { color:#0071e3; }
+        @media (max-width:768px) {
+            body { flex-direction:column; }
+            .login-left { padding:40px 24px; min-height:220px; }
+            .brand-features { display:none; }
+            .login-right { width:100%; padding:36px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-left">
+        <div class="brand-logo"></div>
+        <div class="brand-name">ADAMS APPLE HOME</div>
+        <div class="brand-tagline">Your trusted Apple dealer in Takoradi, Ghana</div>
+        <div class="brand-features">
+    </div>
+
+    <div class="login-right">
+        <h2>Create Account</h2>
+        <p class="sub">Sign up to get started today</p>
+
+        <div class="error-box"   id="error-box">❌ <span id="error-msg"></span></div>
+        <div class="success-box" id="success-box">✅ <span id="success-msg"></span></div>
+
+        <form id="signup-form" style="width:100%;" onsubmit="handleSignup(event)">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <div class="input-wrap">
+                    <span class="icon">👤</span>
+                    <input type="text" id="username" placeholder="e.g. kwadwo123" required autofocus>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <div class="input-wrap">
+                    <span class="icon">📧</span>
+                    <input type="email" id="email" placeholder="crisdarlington84@gmail.com" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-wrap">
+                    <span class="icon">🔒</span>
+                    <input type="password" id="password" placeholder="Min. 6 characters" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirm">Confirm Password</label>
+                <div class="input-wrap">
+                    <span class="icon">🔒</span>
+                    <input type="password" id="confirm" placeholder="Repeat your password" required>
+                </div>
+            </div>
+            <button type="submit" class="btn-login" id="signup-btn">Create Account →</button>
+        </form>
+
+        <div class="divider">or</div>
+        <div class="signup-row">Already have an account? <a href="login.html">Sign In</a></div>
+        <div class="back-home"><a href="index.html">← Back to Homepage</a></div>
+    </div>
+
+    <script>
+        function showError(msg) {
+            const box = document.getElementById('error-box');
+            document.getElementById('error-msg').textContent = msg;
+            box.style.display = 'flex';
+            document.getElementById('success-box').style.display = 'none';
+        }
+        function showSuccess(msg) {
+            const box = document.getElementById('success-box');
+            document.getElementById('success-msg').textContent = msg;
+            box.style.display = 'flex';
+            document.getElementById('error-box').style.display = 'none';
+        }
+
+        function handleSignup(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const email    = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirm  = document.getElementById('confirm').value;
+            const btn      = document.getElementById('signup-btn');
+
+            if (username.length < 3)       return showError('Username must be at least 3 characters.');
+            if (password.length < 6)       return showError('Password must be at least 6 characters.');
+            if (password !== confirm)      return showError('Passwords do not match.');
+
+            const users = JSON.parse(localStorage.getItem('aa_users') || '[]');
+
+            if (users.find(u => u.email === email))       return showError('Email already registered.');
+            if (users.find(u => u.username === username)) return showError('Username already taken.');
+
+            const newUser = { id: Date.now(), username, email, password };
+            users.push(newUser);
+            localStorage.setItem('aa_users', JSON.stringify(users));
+
+            btn.textContent = '✅ Account Created!';
+            btn.disabled = true;
+            showSuccess('Account created! Redirecting to login...');
+
+            setTimeout(() => { window.location.href = 'login.html'; }, 1500);
+        }
+    </script>
+
+</body>
+</html>

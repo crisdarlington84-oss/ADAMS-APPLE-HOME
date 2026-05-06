@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - ADAMS APPLE HOME</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENW82B8L2H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ENW82B8L2H');
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg" href="favicon 2.svg">
+    <style>
+        /* ── HERO ── */
+        .services-hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0071e3 100%);
+            color: #fff;
+            text-align: center;
+            padding: 80px 24px 60px;
+        }
+        .services-hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 14px;
+        }
+        .services-hero p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+        }
+        .hero-badge {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── MAIN SERVICES ── */
+        .services-main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 50px 24px;
+        }
+        .services-main-title {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0071e3;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+        .services-main-sub {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #1d1d1f;
+            margin-bottom: 36px;
+        }
+
+        .services-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .services-grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 500px) {
+            .services-grid-4 { grid-template-columns: 1fr; }
+        }
+
+        .service-card-big {
+            border-radius: 18px;
+            padding: 28px 20px;
+            text-align: center;
+            transition: transform 0.25s, box-shadow 0.25s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+        .service-card-big:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.14);
+        }
+        .card-top {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .service-icon-big {
+            font-size: 2.4rem;
+            display: block;
+            flex-shrink: 0;
+        }
+        .card-top-text h2 {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: #1d1d1f;
+            letter-spacing: -0.5px;
+            margin: 4px 0 0;
+            text-align: center;
+        }
+        .service-card-big:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        /* Individual card colours */
+        .card-isell  { background: linear-gradient(145deg, #e8f4fd, #cce4f7); border: 2px solid #a8d4f0; }
+        .card-ibuy   { background: linear-gradient(145deg, #e8fdf0, #ccf7dc); border: 2px solid #a8f0c0; }
+        .card-iswap  { background: linear-gradient(145deg, #fdf5e8, #f7e8cc); border: 2px solid #f0d0a8; }
+        .card-irepair{ background: linear-gradient(145deg, #fde8e8, #f7cccc); border: 2px solid #f0a8a8; }
+
+        .service-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 12px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+        .badge-isell   { background: #0071e3; color: #fff; }
+        .badge-ibuy    { background: #25D366; color: #fff; }
+        .badge-iswap   { background: #ff9500; color: #fff; }
+        .badge-irepair { background: #ff3b30; color: #fff; }
+
+        .service-icon-big {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .service-card-big h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: #1d1d1f;
+            letter-spacing: -0.5px;
+        }
+        .service-card-big p {
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.75;
+            margin-bottom: 24px;
+        }
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+        .service-features li {
+            font-size: 0.88rem;
+            color: #444;
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .service-features li::before {
+            content: '✓';
+            font-weight: 800;
+            color: #0071e3;
+            font-size: 0.9rem;
+        }
+        .card-ibuy    .service-features li::before { color: #25D366; }
+        .card-iswap   .service-features li::before { color: #ff9500; }
+        .card-irepair .service-features li::before { color: #ff3b30; }
+
+        .btn-service {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+        .btn-service:hover  { opacity: 0.88; }
+        .btn-service:active { transform: scale(0.97); }
+        .btn-isell   { background: #0071e3; color: #fff; }
+        .btn-ibuy    { background: #25D366; color: #fff; }
+        .btn-iswap   { background: #ff9500; color: #fff; }
+        .btn-irepair { background: #ff3b30; color: #fff; }
+
+        /* ── HOW IT WORKS ── */
+        .how-section {
+            background: #f5f5f7;
+            padding: 70px 24px;
+            text-align: center;
+        }
+        .how-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1d1d1f;
+            margin-bottom: 10px;
+        }
+        .how-section .sub {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 50px;
+        }
+        .how-steps {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .how-step {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px 24px;
+            width: 200px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .how-step .step-num {
+            width: 44px; height: 44px;
+            background: #0071e3;
+            color: #fff;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 800; font-size: 1.1rem;
+            margin: 0 auto 14px;
+        }
+        .how-step h4 { font-size: 0.95rem; font-weight: 700; color: #1d1d1f; margin-bottom: 6px; }
+        .how-step p  { font-size: 0.82rem; color: #888; line-height: 1.6; }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: linear-gradient(135deg, #0071e3, #0a0a0a);
+            color: #fff;
+            text-align: center;
+            padding: 70px 24px;
+        }
+        .cta-section h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+        .cta-section p  { font-size: 1rem; opacity: 0.8; margin-bottom: 32px; }
+        .cta-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+        .cta-btn-wa {
+            background: #25D366; color: #fff;
+            padding: 14px 32px; border-radius: 50px;
+            font-size: 1rem; font-weight: 700; text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .cta-btn-wa:hover { opacity: 0.88; }
+        .cta-btn-call {
+            background: rgba(255,255,255,0.15); color: #fff;
+            border: 2px solid rgba(255,255,255,0.4);
+            padding: 14px 32px; border-radius: 50px;
+            font-size: 1rem; font-weight: 700; text-decoration: none;
+            transition: background 0.2s;
+        }
+        .cta-btn-call:hover { background: rgba(255,255,255,0.25); }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">ADAMS APPLE HOME</div>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="products.html">Products ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="products.html#iphone">iPhone</a></li>
+                    <li><a href="products.html#applewatch">Apple Watch</a></li>
+                    <li><a href="products.html#macbook">MacBook</a></li>
+                    <li><a href="products.html#ipad">iPad</a></li>
+                    <li><a href="products.html#airpods">AirPods</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="services.html" class="active">Services ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="services.html#isell">iSell</a></li>
+                    <li><a href="services.html#ibuy">iBuy</a></li>
+                    <li><a href="services.html#iswap">iSwap</a></li>
+                    <li><a href="services.html#irepair">iRepair</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <div id="auth-logged-out" style="display:flex;">
+                    <button onclick="document.getElementById('login-modal').classList.add('open')" style="background:#e36e00;color:#fff;padding:7px 16px;border-radius:8px;font-size:0.85rem;font-weight:700;border:none;cursor:pointer;">Login</button>
+                </div>
+                <div id="auth-logged-in" style="display:none;align-items:center;gap:10px;">
+                    <span id="nav-username" style="font-weight:700;color:#0071e3;font-size:0.9rem;"></span>
+                    <button onclick="logoutUser()" style="background:#ff3b30;color:#fff;padding:7px 14px;border-radius:8px;font-size:0.85rem;font-weight:700;border:none;cursor:pointer;">Logout</button>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- LOGIN MODAL -->
+    <div id="login-modal" onclick="if(event.target===this)this.classList.remove('open')" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;align-items:center;justify-content:center;padding:16px;">
+        <div style="background:#fff;border-radius:20px;padding:36px 32px;width:100%;max-width:380px;box-shadow:0 20px 60px rgba(0,0,0,0.3);position:relative;">
+            <button onclick="document.getElementById('login-modal').classList.remove('open')" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#aaa;">✕</button>
+            <h2 style="text-align:center;font-size:1.4rem;font-weight:800;color:#1d1d1f;margin-bottom:20px;">Login Here</h2>
+            <div id="modal-error" style="background:#fff0f0;color:#c0392b;border:1px solid #fcc;border-radius:8px;padding:9px 12px;font-size:0.82rem;margin-bottom:14px;display:none;"></div>
+            <form onsubmit="handleModalLogin(event)">
+                <div style="margin-bottom:14px;">
+                    <label style="display:block;font-size:0.75rem;font-weight:700;color:#555;margin-bottom:5px;text-transform:uppercase;">Email Address</label>
+                    <input type="email" id="modal-email" placeholder="example@email.com" required style="width:100%;padding:11px 13px;border:1.5px solid #e0e0e0;border-radius:10px;font-size:0.9rem;outline:none;box-sizing:border-box;">
+                </div>
+                <div style="margin-bottom:8px;">
+                    <label style="display:block;font-size:0.75rem;font-weight:700;color:#555;margin-bottom:5px;text-transform:uppercase;">Password</label>
+                    <input type="password" id="modal-password" placeholder="Enter your password" required style="width:100%;padding:11px 13px;border:1.5px solid #e0e0e0;border-radius:10px;font-size:0.9rem;outline:none;box-sizing:border-box;">
+                </div>
+                <div style="text-align:right;margin-bottom:16px;"><a href="forgot-password.html" style="font-size:0.78rem;color:#0071e3;text-decoration:none;font-weight:600;">Forgot Password?</a></div>
+                <button type="submit" id="modal-btn" style="width:100%;padding:12px;background:#e36e00;color:#fff;border:none;border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;">Sign In →</button>
+            </form>
+            <div style="text-align:center;margin-top:16px;font-size:0.82rem;color:#666;">
+                Don't have an account? <a href="signup.html" style="color:#0071e3;font-weight:700;text-decoration:none;">Create one free</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('login-modal');
+        const observer = new MutationObserver(() => {
+            modal.style.display = modal.classList.contains('open') ? 'flex' : 'none';
+        });
+        observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
+
+        (function checkAuthState() {
+            const username = localStorage.getItem('aa_username');
+            if (username) {
+                document.getElementById('auth-logged-out').style.display = 'none';
+                document.getElementById('auth-logged-in').style.display  = 'flex';
+                document.getElementById('nav-username').textContent = '👤 ' + username;
+            }
+        })();
+
+        function logoutUser() {
+            localStorage.removeItem('aa_username');
+            localStorage.removeItem('aa_user_id');
+            location.reload();
+        }
+
+        function handleModalLogin(e) {
+            e.preventDefault();
+            const email    = document.getElementById('modal-email').value.trim();
+            const password = document.getElementById('modal-password').value;
+            const errBox   = document.getElementById('modal-error');
+            const btn      = document.getElementById('modal-btn');
+            errBox.style.display = 'none';
+
+            const users = JSON.parse(localStorage.getItem('aa_users') || '[]');
+            const user  = users.find(u => u.email === email);
+
+            if (!user) { errBox.textContent = 'No account found with that email.'; errBox.style.display = 'block'; return; }
+            if (user.password !== password) { errBox.textContent = 'Incorrect password.'; errBox.style.display = 'block'; return; }
+
+            btn.textContent = '✅ Logging in...';
+            btn.disabled = true;
+            localStorage.setItem('aa_username', user.username);
+            localStorage.setItem('aa_user_id', user.id);
+
+            setTimeout(() => {
+                document.getElementById('login-modal').classList.remove('open');
+                document.getElementById('auth-logged-out').style.display = 'none';
+                document.getElementById('auth-logged-in').style.display  = 'flex';
+                document.getElementById('nav-username').textContent = '👤 ' + user.username;
+                btn.textContent = 'Sign In →';
+                btn.disabled = false;
+            }, 700);
+        }
+    </script>
+
+    <!-- HERO -->
+    <div class="services-hero">
+        <h1>What We Do</h1>
+        <p>Adams Apple Home offers four core services to keep you connected to the Apple deals — at the best prices in Ghana.</p>
+        <div class="hero-badges">
+            <span class="hero-badge">📱 iSell</span>
+            <span class="hero-badge">🛒 iBuy</span>
+            <span class="hero-badge">🔄 iSwap</span>
+            <span class="hero-badge">🔧 iRepair</span>
+        </div>
+    </div>
+
+    <!-- 4 MAIN SERVICE CARDS -->
+    <div class="services-main">
+        <div class="services-main-title">Our Services</div>
+        <div class="services-main-sub">Four ways we serve you</div>
+
+        <div class="services-grid-4">
+
+            <!-- iSell -->
+            <a href="https://wa.me/233247245776?text=Hello!%20I%20want%20to%20buy%20an%20Apple%20device.%20What%20do%20you%20have%20available%3F" target="_blank" class="service-card-big card-isell" id="isell">
+                <div class="card-top">
+                    <span class="service-icon-big">📱</span>
+                    <span class="service-badge badge-isell">iSell</span>
+                    <h2>iSell</h2>
+                </div>
+                <p style="font-size:0.85rem; color:#555; margin-bottom:14px;">Buy brand-new Apple devices</p>
+                <ul class="service-features" style="margin-bottom:18px;">
+                    <li>100% genuine products</li>
+                    <li>Warranty included</li>
+                    <li>Flexible payment plans</li>
+                </ul>
+                <span class="btn-service btn-isell">Shop Now →</span>
+            </a>
+
+            <!-- iBuy -->
+            <a href="https://wa.me/233247245776?text=Hello!%20I%20want%20to%20sell%20my%20Apple%20device.%20How%20much%20can%20I%20get%3F" target="_blank" class="service-card-big card-ibuy" id="ibuy">
+                <div class="card-top">
+                    <span class="service-icon-big">🛒</span>
+                    <span class="service-badge badge-ibuy">iBuy</span>
+                    <h2>iBuy</h2>
+                </div>
+                <p style="font-size:0.85rem; color:#555; margin-bottom:14px;">Sell your used Apple devices</p>
+                <ul class="service-features" style="margin-bottom:18px;">
+                    <li>Fair valuations</li>
+                    <li>Instant cash payment</li>
+                    <li>All devices accepted</li>
+                </ul>
+                <span class="btn-service btn-ibuy">Get a Quote →</span>
+            </a>
+
+            <!-- iSwap -->
+            <a href="https://wa.me/233247245776?text=Hello!%20I%20want%20to%20swap%20my%20Apple%20device%20for%20a%20newer%20model." target="_blank" class="service-card-big card-iswap" id="iswap">
+                <div class="card-top">
+                    <span class="service-icon-big">🔄</span>
+                    <span class="service-badge badge-iswap">iSwap</span>
+                    <h2>iSwap</h2>
+                </div>
+                <p style="font-size:0.85rem; color:#555; margin-bottom:14px;">Trade-in & upgrade service</p>
+                <ul class="service-features" style="margin-bottom:18px;">
+                    <li>Swap old for new</li>
+                    <li>Pay only the difference</li>
+                    <li>Data transfer included</li>
+                </ul>
+                <span class="btn-service btn-iswap">Start Swap →</span>
+            </a>
+
+            <!-- iRepair -->
+            <a href="https://wa.me/233247245776?text=Hello!%20I%20need%20a%20repair%20for%20my%20Apple%20device.%20Can%20you%20help%3F" target="_blank" class="service-card-big card-irepair" id="irepair">
+                <div class="card-top">
+                    <span class="service-icon-big">🔧</span>
+                    <span class="service-badge badge-irepair">iRepair</span>
+                    <h2>iRepair</h2>
+                </div>
+                <p style="font-size:0.85rem; color:#555; margin-bottom:14px;">Expert device repair service</p>
+                <ul class="service-features" style="margin-bottom:18px;">
+                    <li>Screen & battery fixes</li>
+                    <li>Software troubleshooting</li>
+                    <li>Same-day repairs</li>
+                </ul>
+                <span class="btn-service btn-irepair">Book Repair →</span>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how-section">
+        <h2>How It Works</h2>
+        <p class="sub">Getting started is simple — just 3 steps</p>
+        <div class="how-steps">
+            <div class="how-step">
+                <div class="step-num">1</div>
+                <h4>Contact Us</h4>
+                <p>Reach us via WhatsApp, call, or visit our store in Takoradi.</p>
+            </div>
+            <div class="how-step">
+                <div class="step-num">2</div>
+                <h4>Get a Quote</h4>
+                <p>We assess your device and give you a fair, transparent price.</p>
+            </div>
+            <div class="how-step">
+                <div class="step-num">3</div>
+                <h4>Done!</h4>
+                <p>Buy, sell, swap or repair — completed quickly and professionally.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+        <h2>Ready to Get Started?</h2>
+        <p>Contact us today on WhatsApp or give us a call — we're ready to help.</p>
+        <div class="cta-btns">
+            <a href="https://wa.me/233247245776?text=Hello!%20I%20am%20interested%20in%20your%20services." target="_blank" class="cta-btn-wa">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:18px;height:18px;vertical-align:middle;margin-right:6px;">
+                Chat on WhatsApp
+            </a>
+            <a href="tel:+233247245776" class="cta-btn-call">📞 Call Us Now</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ADAMS APPLE HOME</h4>
+                <p>Your trusted Apple dealer in Western Region Takoradi-Ghana. Home of Quality Apple devices at affordable prices.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Our Services</h4>
+                <ul>
+                    <li><a href="services.html#isell">📱 iSell</a></li>
+                    <li><a href="services.html#ibuy">🛒 iBuy</a></li>
+                    <li><a href="services.html#iswap">🔄 iSwap</a></li>
+                    <li><a href="services.html#irepair">🔧 iRepair</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>📍 <a href="https://www.google.com/maps/search/Takoradi,+Western+Region,+Ghana" target="_blank" style="color:inherit; text-decoration:none;">Takoradi, Western Region, Ghana</a></p>
+                <p>📧 <a href="mailto:Crisdarlington84@gmail.com" style="color:inherit; text-decoration:none;">Crisdarlington84@gmail.com</a></p>
+                <p>📞 <a href="tel:+233247245776" style="color:inherit; text-decoration:none;">+233 247 245 776</a></p>
+                <p>📞 <a href="tel:+233552572786" style="color:inherit; text-decoration:none;">+233 552 572 786</a></p>
+                <p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:16px;height:16px;vertical-align:middle;margin-right:4px;"><a href="https://wa.me/233247245776" target="_blank" style="color:inherit;text-decoration:none;">WhatsApp Us</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>@2026 Adams Apple Home. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

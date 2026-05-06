@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Apple shape -->
+  <circle cx="50" cy="55" r="35" fill="#c62828"></circle>
+  
+  <!-- Leaf -->
+  <ellipse cx="60" cy="20" rx="10" ry="5" fill="#2e7d32" transform="rotate(-30 60 20)"></ellipse>
+  
+  <!-- Letter A -->
+  <text x="50" y="65" font-size="40" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold">
+    A
+  </text>
+</svg>

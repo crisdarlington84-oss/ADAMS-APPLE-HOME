@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Hours - ADAMS APPLE HOME</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENW82B8L2H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ENW82B8L2H');
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg" href="favicon 2.svg">
+    <style>
+        .hours-hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #0071e3 100%);
+            color: #fff;
+            text-align: center;
+            padding: 50px 24px 36px;
+        }
+        .hours-hero h1 { font-size: 2rem; font-weight: 900; margin-bottom: 8px; }
+        .hours-hero p  { font-size: 0.9rem; opacity: 0.8; }
+
+        .hours-main {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 36px 20px 60px;
+        }
+
+        /* Live clock — compact */
+        .live-clock {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            margin-bottom: 20px;
+        }
+        .clock-left .clock-label { font-size: 0.72rem; color: #aaa; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; }
+        .clock-left .clock-time  { font-size: 1.5rem; font-weight: 900; color: #1d1d1f; font-variant-numeric: tabular-nums; }
+        .clock-right { text-align: right; }
+        .clock-right .clock-date { font-size: 0.8rem; color: #666; }
+
+        /* Status pill */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+        .status-open        { background: #f0fff4; color: #1a7a3a; border: 1.5px solid #25D366; }
+        .status-open-today  { background: #fff8e8; color: #b45309; border: 1.5px solid #f59e0b; }
+        .status-closed      { background: #fff0f0; color: #c0392b; border: 1.5px solid #ff3b30; }
+
+        /* Day tabs */
+        .day-tabs {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .day-tab {
+            padding: 7px 14px;
+            border-radius: 50px;
+            border: 1.5px solid #e0e0e0;
+            background: #fff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.18s;
+            color: #555;
+            white-space: nowrap;
+        }
+        .day-tab:hover { border-color: #0071e3; color: #0071e3; }
+        .day-tab.active-open   { background: #0071e3; color: #fff; border-color: #0071e3; }
+        .day-tab.active-closed { background: #ff3b30; color: #fff; border-color: #ff3b30; }
+        .day-tab.is-today      { box-shadow: 0 0 0 2px #0071e3; }
+
+        /* Detail card */
+        .detail-card {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 28px 24px;
+            text-align: center;
+            margin-bottom: 20px;
+            min-height: 140px;
+        }
+        .detail-day   { font-size: 1.3rem; font-weight: 900; color: #1d1d1f; margin-bottom: 8px; }
+        .detail-hours { font-size: 1.6rem; font-weight: 800; margin-bottom: 12px; }
+        .detail-open   { color: #0071e3; }
+        .detail-closed { color: #ff3b30; }
+        .detail-note  { font-size: 0.82rem; color: #888; }
+
+        /* CTA compact */
+        .hours-cta {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .btn-wa   { background: #25D366; color: #fff; padding: 10px 20px; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 0.85rem; }
+        .btn-call { background: #0071e3; color: #fff; padding: 10px 20px; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 0.85rem; }
+        .back-link { text-align: center; }
+        .back-link a { color: #0071e3; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+        .back-link a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">ADAMS APPLE HOME</div>
+        <ul class="menu">
+            <li><a href="index.php">Home</a></li>
+            <li class="dropdown">
+                <a href="products.html">Products ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="products.html#iphone">iPhone</a></li>
+                    <li><a href="products.html#applewatch">Apple Watch</a></li>
+                    <li><a href="products.html#macbook">MacBook</a></li>
+                    <li><a href="products.html#ipad">iPad</a></li>
+                    <li><a href="products.html#airpods">AirPods</a></li>
+                    <li><a href="products.html#accessories">Accessories</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="services.html">Services ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="services.html#isell">iSell</a></li>
+                    <li><a href="services.html#ibuy">iBuy</a></li>
+                    <li><a href="services.html#iswap">iSwap</a></li>
+                    <li><a href="services.html#irepair">iRepair</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li>
+                <div id="auth-logged-out" style="display:flex;">
+                    <button onclick="document.getElementById('login-modal').classList.add('open')" style="background:#e36e00;color:#fff;padding:7px 16px;border-radius:8px;font-size:0.85rem;font-weight:700;border:none;cursor:pointer;">Login</button>
+                </div>
+                <div id="auth-logged-in" style="display:none;align-items:center;gap:10px;">
+                    <span id="nav-username" style="font-weight:700;color:#0071e3;font-size:0.9rem;"></span>
+                    <button onclick="logoutUser()" style="background:#ff3b30;color:#fff;padding:7px 14px;border-radius:8px;font-size:0.85rem;font-weight:700;border:none;cursor:pointer;">Logout</button>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- LOGIN MODAL -->
+    <div id="login-modal" onclick="if(event.target===this)this.classList.remove('open')" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;align-items:center;justify-content:center;padding:16px;">
+        <div style="background:#fff;border-radius:20px;padding:36px 32px;width:100%;max-width:380px;box-shadow:0 20px 60px rgba(0,0,0,0.3);position:relative;">
+            <button onclick="document.getElementById('login-modal').classList.remove('open')" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#aaa;">✕</button>
+            <h2 style="text-align:center;font-size:1.4rem;font-weight:800;color:#1d1d1f;margin-bottom:20px;">Login Here</h2>
+            <div id="modal-error" style="background:#fff0f0;color:#c0392b;border:1px solid #fcc;border-radius:8px;padding:9px 12px;font-size:0.82rem;margin-bottom:14px;display:none;"></div>
+            <form onsubmit="handleModalLogin(event)">
+                <div style="margin-bottom:14px;">
+                    <label style="display:block;font-size:0.75rem;font-weight:700;color:#555;margin-bottom:5px;text-transform:uppercase;">Email Address</label>
+                    <input type="email" id="modal-email" placeholder="example@email.com" required style="width:100%;padding:11px 13px;border:1.5px solid #e0e0e0;border-radius:10px;font-size:0.9rem;outline:none;box-sizing:border-box;">
+                </div>
+                <div style="margin-bottom:8px;">
+                    <label style="display:block;font-size:0.75rem;font-weight:700;color:#555;margin-bottom:5px;text-transform:uppercase;">Password</label>
+                    <input type="password" id="modal-password" placeholder="Enter your password" required style="width:100%;padding:11px 13px;border:1.5px solid #e0e0e0;border-radius:10px;font-size:0.9rem;outline:none;box-sizing:border-box;">
+                </div>
+                <div style="text-align:right;margin-bottom:16px;"><a href="forgot-password.html" style="font-size:0.78rem;color:#0071e3;text-decoration:none;font-weight:600;">Forgot Password?</a></div>
+                <button type="submit" id="modal-btn" style="width:100%;padding:12px;background:#e36e00;color:#fff;border:none;border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;">Sign In →</button>
+            </form>
+            <div style="text-align:center;margin-top:16px;font-size:0.82rem;color:#666;">
+                Don't have an account? <a href="signup.html" style="color:#0071e3;font-weight:700;text-decoration:none;">Create one free</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginModal = document.getElementById('login-modal');
+        const loginObserver = new MutationObserver(() => {
+            loginModal.style.display = loginModal.classList.contains('open') ? 'flex' : 'none';
+        });
+        loginObserver.observe(loginModal, { attributes: true, attributeFilter: ['class'] });
+
+        (function checkAuthState() {
+            const username = localStorage.getItem('aa_username');
+            if (username) {
+                document.getElementById('auth-logged-out').style.display = 'none';
+                document.getElementById('auth-logged-in').style.display  = 'flex';
+                document.getElementById('nav-username').textContent = '👤 ' + username;
+            }
+        })();
+
+        function logoutUser() {
+            localStorage.removeItem('aa_username');
+            localStorage.removeItem('aa_user_id');
+            location.reload();
+        }
+
+        function handleModalLogin(e) {
+            e.preventDefault();
+            const email    = document.getElementById('modal-email').value.trim();
+            const password = document.getElementById('modal-password').value;
+            const errBox   = document.getElementById('modal-error');
+            const btn      = document.getElementById('modal-btn');
+            errBox.style.display = 'none';
+
+            const users = JSON.parse(localStorage.getItem('aa_users') || '[]');
+            const user  = users.find(u => u.email === email);
+
+            if (!user) { errBox.textContent = 'No account found with that email.'; errBox.style.display = 'block'; return; }
+            if (user.password !== password) { errBox.textContent = 'Incorrect password.'; errBox.style.display = 'block'; return; }
+
+            btn.textContent = '✅ Logging in...';
+            btn.disabled = true;
+            localStorage.setItem('aa_username', user.username);
+            localStorage.setItem('aa_user_id', user.id);
+
+            setTimeout(() => {
+                document.getElementById('login-modal').classList.remove('open');
+                document.getElementById('auth-logged-out').style.display = 'none';
+                document.getElementById('auth-logged-in').style.display  = 'flex';
+                document.getElementById('nav-username').textContent = '👤 ' + user.username;
+                btn.textContent = 'Sign In →';
+                btn.disabled = false;
+            }, 700);
+        }
+    </script>
+
+    <!-- HERO -->
+    <div class="hours-hero">
+        <h1>🕐 Working Hours</h1>
+        <p>Tap a day to see our hours — Takoradi, Ghana</p>
+    </div>
+
+    <div class="hours-main">
+
+        <!-- Compact live clock + status -->
+        <div class="live-clock">
+            <div class="clock-left">
+                <div class="clock-label">🇬🇭 Ghana Time (GMT+0)</div>
+                <div class="clock-date" id="clock-date" style="font-size:0.82rem; color:#555; margin-bottom:4px;">Loading...</div>
+                <div class="clock-time" id="clock-time" style="font-size:1.8rem; font-weight:900; color:#1d1d1f; font-variant-numeric:tabular-nums; letter-spacing:-0.5px;">--:--</div>
+            </div>
+            <div class="clock-right">
+                <div style="margin-top:6px;" id="status-pill"></div>
+            </div>
+        </div>
+
+        <!-- Day tabs -->
+        <div class="day-tabs" id="day-tabs"></div>
+
+        <!-- Detail card -->
+        <div class="detail-card" id="detail-card">
+            <div class="detail-day"  id="detail-day">Select a day</div>
+            <div class="detail-hours" id="detail-hours">—</div>
+            <div class="detail-note"  id="detail-note"></div>
+        </div>
+
+        <!-- CTA -->
+        <div class="hours-cta">
+            <a href="https://wa.me/233247245776?text=Hello!%20I%20would%20like%20to%20know%20more%20about%20your%20products." target="_blank" class="btn-wa">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:14px;height:14px;vertical-align:middle;margin-right:5px;">
+                WhatsApp Us
+            </a>
+            <a href="tel:+233247245776" class="btn-call">📞 Call Us</a>
+        </div>
+
+        <div class="back-link">
+            <a href="contact.html">← Back to Contact</a>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ADAMS APPLE HOME</h4>
+                <p>Your trusted Apple dealer in Western Region Takoradi-Ghana.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>📍 <a href="https://www.google.com/maps/search/Takoradi,+Western+Region,+Ghana" target="_blank" style="color:inherit;text-decoration:none;">Takoradi, Western Region, Ghana</a></p>
+                <p>📧 <a href="mailto:Crisdarlington84@gmail.com" style="color:inherit;text-decoration:none;">Crisdarlington84@gmail.com</a></p>
+                <p>📞 <a href="tel:+233247245776" style="color:inherit;text-decoration:none;">+233 247 245 776</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>@2026 Adams Apple Home. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const schedule = [
+            { day: 'Monday',    short: 'Mon', hours: '8:00 AM – 7:00 PM', open: true },
+            { day: 'Tuesday',   short: 'Tue', hours: '8:00 AM – 7:00 PM', open: true },
+            { day: 'Wednesday', short: 'Wed', hours: '8:00 AM – 7:00 PM', open: true },
+            { day: 'Thursday',  short: 'Thu', hours: '8:00 AM – 7:00 PM', open: true },
+            { day: 'Friday',    short: 'Fri', hours: '8:00 AM – 7:00 PM', open: true },
+            { day: 'Saturday',  short: 'Sat', hours: '8:00 AM – 7:00 PM', open: true },
+            { day: 'Sunday',    short: 'Sun', hours: 'Closed',             open: false }
+        ];
+
+        // Ghana timezone — Africa/Accra (always GMT+0, no DST)
+        function ghanaDate() {
+            const now = new Date();
+            // Use toLocaleString with Africa/Accra to get correct local parts
+            const parts = new Intl.DateTimeFormat('en-US', {
+                timeZone: 'Africa/Accra',
+                hour: '2-digit', minute: '2-digit', second: '2-digit',
+                hour12: false,
+                weekday: 'long', day: 'numeric', month: 'numeric', year: 'numeric'
+            }).formatToParts(now);
+
+            const get = (type) => parts.find(p => p.type === type)?.value;
+            let hours = parseInt(get('hour'));
+            if (hours === 24) hours = 0; // midnight fix
+
+            return {
+                hours,
+                minutes: parseInt(get('minute')),
+                seconds: parseInt(get('second')),
+                dayName: get('weekday'),
+                day:     ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+                            .indexOf(get('weekday')),
+                date:    parseInt(get('day')),
+                month:   parseInt(get('month')) - 1,
+                year:    parseInt(get('year'))
+            };
+        }
+
+        function getGhanaHour() { return ghanaDate().hours; }
+        function getGhanaDay()  { return ghanaDate().dayName; }
+
+        function getGhanaDate() {
+            const g = ghanaDate();
+            const months  = ['January','February','March','April','May','June',
+                             'July','August','September','October','November','December'];
+            const dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+            const d = g.date;
+            const suffix = (d===1||d===21||d===31) ? 'st'
+                         : (d===2||d===22)          ? 'nd'
+                         : (d===3||d===23)           ? 'rd' : 'th';
+            return `${dayNames[g.day]}, ${d}${suffix} ${months[g.month]} ${g.year}`;
+        }
+
+        function updateClock() {
+            const g      = ghanaDate();
+            const h24    = g.hours === 24 ? 0 : g.hours; // handle midnight edge case
+            const period = h24 >= 12 ? 'PM' : 'AM';
+            const h12    = h24 % 12 || 12;
+            const m      = String(g.minutes).padStart(2, '0');
+            const s      = String(g.seconds).padStart(2, '0');
+
+            document.getElementById('clock-time').textContent = `${h12}:${m}:${s} ${period}`;
+            document.getElementById('clock-date').textContent = getGhanaDate();
+
+            // Status pill
+            const today    = getGhanaDay();
+            const ghHour   = getGhanaHour();
+            const todayRow = schedule.find(s => s.day === today);
+            const isOpenNow   = todayRow?.open && ghHour >= 8 && ghHour < 19;
+            const isOpenToday = todayRow?.open;
+
+            let pillClass, pillText;
+            if (isOpenNow) {
+                pillClass = 'status-open';
+                pillText  = '✅ Open Now';
+            } else if (isOpenToday) {
+                pillClass = 'status-open-today';
+                pillText  = '🕐 Open Today · 8AM–7PM';
+            } else {
+                pillClass = 'status-closed';
+                pillText  = '❌ Closed Today';
+            }
+            document.getElementById('status-pill').innerHTML =
+                `<span class="status-pill ${pillClass}">${pillText}</span>`;
+        }
+
+        function selectDay(dayName) {
+            const today  = getGhanaDay();
+            const ghHour = getGhanaHour();
+            const row    = schedule.find(s => s.day === dayName);
+
+            document.querySelectorAll('.day-tab').forEach(t => {
+                t.classList.remove('active-open', 'active-closed');
+                if (t.dataset.day === dayName) {
+                    t.classList.add(row.open ? 'active-open' : 'active-closed');
+                }
+            });
+
+            document.getElementById('detail-day').textContent = dayName;
+            const hoursEl = document.getElementById('detail-hours');
+            hoursEl.textContent = row.hours;
+            hoursEl.className = 'detail-hours ' + (row.open ? 'detail-open' : 'detail-closed');
+
+            let note = '';
+            if (dayName === today) {
+                const isOpenNow = row.open && ghHour >= 8 && ghHour < 19;
+                if (isOpenNow) {
+                    note = '✅ We are open right now!';
+                } else if (row.open) {
+                    note = '🕐 Open today · 8:00 AM - 7:00 PM';
+                } else {
+                    note = '❌ Closed today';
+                }
+            } else {
+                note = row.open ? '🕐 Open this day · 8:00 AM - 7:00 PM' : '❌ Closed this day';
+            }
+            document.getElementById('detail-note').textContent = note;
+        }
+
+        function buildTabs() {
+            const today     = getGhanaDay();
+            const container = document.getElementById('day-tabs');
+            container.innerHTML = '';
+            schedule.forEach(row => {
+                const btn = document.createElement('button');
+                btn.className  = 'day-tab' + (row.day === today ? ' is-today' : '');
+                btn.dataset.day = row.day;
+                btn.textContent = row.short;
+                btn.onclick = () => selectDay(row.day);
+                container.appendChild(btn);
+            });
+            selectDay(today);
+        }
+
+        buildTabs();
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+
+</body>
+</html>

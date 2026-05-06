@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ADAMS APPLE HOME</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENW82B8L2H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ENW82B8L2H');
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg" href="favicon 2.svg">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">ADAMS APPLE HOME</div>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Products ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">iPhone</a></li>
+                    <li><a href="#">Apple Watch</a></li>
+                    <li><a href="#">MacBook</a></li>
+                    <li><a href="#">iPad</a></li>
+                    <li><a href="#">AirPods</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="services.html">Services ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="services.html#iSell">iSell</a></li>
+                    <li><a href="services.html#iBuy">iBuy</a></li>
+                    <li><a href="services.html#iSwap">iSwap</a></li>
+                    <li><a href="services.html#iRepair">iRepair</a></li>
+                </ul>
+            </li>
+            <li><a href="about.html" class="active">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <div id="auth-logged-out" style="display:flex;">
+                    <button onclick="document.getElementById('login-modal').classList.add('open')" style="background:#e36e00;color:#fff;padding:7px 16px;border-radius:8px;font-size:0.85rem;font-weight:700;border:none;cursor:pointer;">Login</button>
+                </div>
+                <div id="auth-logged-in" style="display:none;align-items:center;gap:10px;">
+                    <span id="nav-username" style="font-weight:700;color:#0071e3;font-size:0.9rem;"></span>
+                    <button onclick="logoutUser()" style="background:#ff3b30;color:#fff;padding:7px 14px;border-radius:8px;font-size:0.85rem;font-weight:700;border:none;cursor:pointer;">Logout</button>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- LOGIN MODAL -->
+    <div id="login-modal" onclick="if(event.target===this)this.classList.remove('open')" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;align-items:center;justify-content:center;padding:16px;">
+        <div style="background:#fff;border-radius:20px;padding:36px 32px;width:100%;max-width:380px;box-shadow:0 20px 60px rgba(0,0,0,0.3);position:relative;">
+            <button onclick="document.getElementById('login-modal').classList.remove('open')" style="position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:#aaa;">✕</button>
+            <h2 style="text-align:center;font-size:1.4rem;font-weight:800;color:#1d1d1f;margin-bottom:20px;">Login Here</h2>
+            <div id="modal-error" style="background:#fff0f0;color:#c0392b;border:1px solid #fcc;border-radius:8px;padding:9px 12px;font-size:0.82rem;margin-bottom:14px;display:none;"></div>
+            <form onsubmit="handleModalLogin(event)">
+                <div style="margin-bottom:14px;">
+                    <label style="display:block;font-size:0.75rem;font-weight:700;color:#555;margin-bottom:5px;text-transform:uppercase;">Email Address</label>
+                    <input type="email" id="modal-email" placeholder="example@email.com" required style="width:100%;padding:11px 13px;border:1.5px solid #e0e0e0;border-radius:10px;font-size:0.9rem;outline:none;box-sizing:border-box;">
+                </div>
+                <div style="margin-bottom:8px;">
+                    <label style="display:block;font-size:0.75rem;font-weight:700;color:#555;margin-bottom:5px;text-transform:uppercase;">Password</label>
+                    <input type="password" id="modal-password" placeholder="Enter your password" required style="width:100%;padding:11px 13px;border:1.5px solid #e0e0e0;border-radius:10px;font-size:0.9rem;outline:none;box-sizing:border-box;">
+                </div>
+                <div style="text-align:right;margin-bottom:16px;"><a href="forgot-password.html" style="font-size:0.78rem;color:#0071e3;text-decoration:none;font-weight:600;">Forgot Password?</a></div>
+                <button type="submit" id="modal-btn" style="width:100%;padding:12px;background:#e36e00;color:#fff;border:none;border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;">Sign In →</button>
+            </form>
+            <div style="text-align:center;margin-top:16px;font-size:0.82rem;color:#666;">
+                Don't have an account? <a href="signup.html" style="color:#0071e3;font-weight:700;text-decoration:none;">Create one free</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('login-modal');
+        const observer = new MutationObserver(() => {
+            modal.style.display = modal.classList.contains('open') ? 'flex' : 'none';
+        });
+        observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
+
+        (function checkAuthState() {
+            const username = localStorage.getItem('aa_username');
+            if (username) {
+                document.getElementById('auth-logged-out').style.display = 'none';
+                document.getElementById('auth-logged-in').style.display  = 'flex';
+                document.getElementById('nav-username').textContent = '👤 ' + username;
+            }
+        })();
+
+        function logoutUser() {
+            localStorage.removeItem('aa_username');
+            localStorage.removeItem('aa_user_id');
+            location.reload();
+        }
+
+        function handleModalLogin(e) {
+            e.preventDefault();
+            const email    = document.getElementById('modal-email').value.trim();
+            const password = document.getElementById('modal-password').value;
+            const errBox   = document.getElementById('modal-error');
+            const btn      = document.getElementById('modal-btn');
+            errBox.style.display = 'none';
+
+            const users = JSON.parse(localStorage.getItem('aa_users') || '[]');
+            const user  = users.find(u => u.email === email);
+
+            if (!user) { errBox.textContent = 'No account found with that email.'; errBox.style.display = 'block'; return; }
+            if (user.password !== password) { errBox.textContent = 'Incorrect password.'; errBox.style.display = 'block'; return; }
+
+            btn.textContent = '✅ Logging in...';
+            btn.disabled = true;
+            localStorage.setItem('aa_username', user.username);
+            localStorage.setItem('aa_user_id', user.id);
+
+            setTimeout(() => {
+                document.getElementById('login-modal').classList.remove('open');
+                document.getElementById('auth-logged-out').style.display = 'none';
+                document.getElementById('auth-logged-in').style.display  = 'flex';
+                document.getElementById('nav-username').textContent = '👤 ' + user.username;
+                btn.textContent = 'Sign In →';
+                btn.disabled = false;
+            }, 700);
+        }
+    </script>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <h1>About Adams Apple Home</h1>
+        <p>Your trusted Apple dealer in Takoradi, Western Region — Ghana.</p>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section class="contact-section" style="display:block; padding: 60px 40px;">
+
+        <!-- Our Story -->
+        <div style="max-width:800px; margin:0 auto 50px auto; text-align:center;">
+            <h2 style="margin-bottom:16px;">Our Story</h2>
+            <p style="font-size:1.05rem; line-height:1.8; color:#555;">
+                Adams Apple Home was founded with one simple mission — to make genuine Apple products accessible to everyone in the Western Region of Ghana. 
+                Based in Takoradi, we are passionate about technology and committed to delivering the best Apple experience at affordable prices. 
+                From iPhones to MacBooks, Apple Watches to AirPods, we stock only 100% original Apple-certified devices.
+            </p>
+        </div>
+
+        <!-- Values Grid -->
+        <div class="why-grid" style="margin-bottom:50px;">
+            <div class="why-card">
+                <h3>🎯 Our Mission</h3>
+                <p>To provide genuine Apple products with excellent customer service to every household in Ghana.</p>
+            </div>
+            <div class="why-card">
+                <h3>👁️ Our Vision</h3>
+                <p>To become the most trusted Apple reseller across all regions of Ghana.</p>
+            </div>
+            <div class="why-card">
+                <h3>💎 Our Values</h3>
+                <p>Integrity, quality, and customer satisfaction are at the heart of everything we do.</p>
+            </div>
+            <div class="why-card">
+                <h3>📍 Our Location</h3>
+                <p>Takoradi, Western Region, Ghana. Serving customers in-store and online.</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div style="text-align:center;">
+            <h2 style="margin-bottom:12px;">Ready to shop with us?</h2>
+            <p style="color:#555; margin-bottom:24px;">Get in touch today and let's do business together.</p>
+            <a href="contact.html" class="btn" style="display:inline-block;">Contact Us</a>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>ADAMS APPLE HOME</h4>
+                <p>Your trusted Apple dealer in Western Region Takoradi-Ghana. Home of Quality Apple devices at affordable prices.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="products.html#iphone">iPhone</a></li>
+                    <li><a href="products.html#macbook">MacBook</a></li>
+                    <li><a href="products.html#applewatch">Apple Watch</a></li>
+                    <li><a href="products.html#airpods">AirPods</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Us</h4>
+                <p>📍 <a href="https://www.google.com/maps/search/Takoradi,+Western+Region,+Ghana" target="_blank" style="color:inherit; text-decoration:none;">Takoradi, Western Region, Ghana</a></p>
+                <p>📧 <a href="mailto:Crisdarlington84@gmail.com" style="color:inherit; text-decoration:none;">Crisdarlington84@gmail.com</a></p>
+                <p>📞 <a href="tel:+233247245776" style="color:inherit; text-decoration:none;">+233 247 245 776</a></p>
+                <p>📞 <a href="tel:+233552572786" style="color:inherit; text-decoration:none;">+233 552 572 786</a></p>
+                <p><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:16px; height:16px; vertical-align:middle; margin-right:4px;"><a href="https://wa.me/233247245776" target="_blank" style="color:inherit; text-decoration:none;">WhatsApp Us</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>@2026 Adams Apple Home. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
